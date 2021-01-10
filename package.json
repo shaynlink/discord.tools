@@ -1,0 +1,23 @@
+{
+  "name": "discord.tools",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nuxt": "^2.14.12",
+    "sass": "^1.32.2",
+    "sass-loader": "^10.1.0"
+  }
+}

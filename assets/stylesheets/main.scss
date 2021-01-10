@@ -1,0 +1,17 @@
+@charset "utf8";
+
+$background: #2C2F33;
+$scheme-main: #2C2F33;
+$text: #d6d6d6;
+$navbar-background-color: #4A90E2;
+$navbar-height: 1.8rem;
+
+@import "./bulma/bulma.sass";
+
+p, h1, h2, h3, h4, h5, h6, .title, .subtitle, .navbar-link, .navbar-item {
+    color: $text;
+};
+
+.navbar {
+    background-color: $navbar-background-color;
+}
