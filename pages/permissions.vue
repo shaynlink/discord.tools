@@ -6,7 +6,7 @@
                     <div class="columns is-desktop">
                         <div class="column">
                             <div style="margin-bottom: 20%">
-                                <h1 class="title is-5">General server permissions</h1>
+                                <h1 class="title is-5">General guild permissions</h1>
                             </div>
                             <div class="columns is-multiline">
                                 <div v-for="key of Object.keys(general)" :key="key" class="column is-12">
@@ -86,7 +86,7 @@
                         </div>
                         <div class="column">
                             <div style="margin-bottom: 20%">
-                                <h1 class="title is-5">Advenced permissions</h1>
+                                <h1 class="title is-5">Advanced permissions</h1>
                             </div>
                             <div class="columns is-multiline">
                                 <div v-for="key of Object.keys(advanced)" :key="key" class="column is-12">
