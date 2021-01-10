@@ -25,6 +25,10 @@
                 <NuxtLink to="/intents" class="navbar-item">
                     Intents
                 </NuxtLink>
+        
+                <NuxtLink to="/webhook" class="navbar-item">
+                    Webhook
+                </NuxtLink>
             </div>
         </div>
     </nav>

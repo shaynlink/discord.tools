@@ -9,7 +9,13 @@
                 </div>
                 <div class="column">
                     <figure class="image">
-                        <img src="~/assets/images/Discord-Logo+Wordmark-Color.svg" />
+                        <img 
+                            src="~/assets/images/Discord-Logo+Wordmark-Color.svg"
+                            decoding="async"
+                            importance="low"
+                            loading="lazy"
+
+                            />
                     </figure>
                 </div>
             </div>
@@ -17,13 +23,3 @@
       </div>
   </section>
 </template>
-
-<script>
-export default {
-
-}
-</script>
-
-<style>
-
-</style>
