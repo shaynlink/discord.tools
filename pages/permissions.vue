@@ -166,7 +166,7 @@
         <section class="hero">
             <div class="hero-body">
                 <div class="container">
-                    <div class="columns is-desktop is-vcentered">
+                    <div class="columns is-desktop is-vcentered is-multiline">
                         <div class="column">
                             <label>
                                 Client ID
@@ -179,15 +179,60 @@
                                 <input v-model="guild_id" class="input" type="text">
                             </label>
                         </div>
+                        <div class="column is-1">
+                            <label>
+                                <p>API version</p>
+                                <div class="select">
+                                    <select v-model="version">
+                                        <option v-for="version of versions" :key="version">{{version}}</option>
+                                    </select>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="column is-12">
+                            <h1 class="title is-4">Extends authorization</h1>
+                        </div>
                         <div class="column">
                             <label>
-                            <p>API version</p>
-                            <div class="select">
-                                <select v-model="version">
-                                    <option v-for="version of versions" :key="version">{{version}}</option>
-                                </select>
-                            </div>
+                                Redirect URI (optional)
+                                <input v-model="redirect_uri" class="input" type="text">
                             </label>
+                        </div>
+                        <div class="column">
+                            <label>
+                                Prompt (optional)
+                                <input v-model="prompt" class="input" type="text">
+                            </label>
+                        </div>
+                        <div class="column">
+                            <div class="columns is-vcentered">
+                                <div class="column is-2">
+                                    <label class="toggle-control">
+                                        <input type="checkbox" :checked="showScope" v-on:click="showScope = !showScope">
+                                        <span class="control"></span>
+                                    </label>
+                                </div>
+                                <div class="column">
+                                    <div><p>Show all scopes</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-12" v-if="showScope">
+                            <div class="columns is-multiline">
+                                <div v-for="[key, value] of Object.entries(scopes).filter(([k]) => k != 'bot')" :key="key" class="column is-3">
+                                    <div class="columns is-vcentered">
+                                        <div class="column is-3">
+                                            <label class="toggle-control">
+                                                <input type="checkbox" :checked="value" v-on:click="scopes[key] = !scopes[key]">
+                                                <span class="control"></span>
+                                            </label>
+                                        </div>
+                                        <div class="column">
+                                            <div><p>{{key.toLowerCase().replace(/_/g, ' ')}}</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -197,7 +242,7 @@
             <div class="hero-body">
                 <div class="container">
                     <div class="columns">
-                        <div class="column">
+                        <div class="column" style="word-break: break-all;">
                             <h1>Permissions: <code>{{permissions == 2147483647 ? '-1' : permissions}}</code></h1>
                             <p v-if="permissions == 2147483647" style="font-size: smaller;">Permission -1 is a shortcut for use all permissions</p>
                             <h1>Link: <a :href="`${
@@ -212,7 +257,13 @@
                                     this.guild_id ? `guild_id=${this.guild_id}` : ''
                                 }&disable_guild_select=${
                                     this.disable_guild_select
-                                }&scope=bot`" target="_blank">
+                                }&scope=${
+                                    encodeURIComponent(Object.entries(this.scopes).filter(([k, v]) => !!v).map(([k]) => k).join(' '))
+                                }${
+                                    this.redirect_uri ? `&redirect_uri=${encodeURIComponent(this.redirect_uri)}` : ''
+                                }${
+                                    this.prompt ? `&prompt=${this.prompt}` : ''
+                                }`" target="_blank">
                             <span :style="`color: ${client_id.length < 1 ? '#BB2F2F' : '#5CBB2F'}`">{{ `${
                                 this.url
                                 }/v${
@@ -225,7 +276,13 @@
                                     this.guild_id ? `guild_id=${this.guild_id}` : ''
                                 }&disable_guild_select=${
                                     this.disable_guild_select
-                                }&scope=bot`}}
+                                }&scope=${
+                                    encodeURIComponent(Object.entries(this.scopes).filter(([k, v]) => !!v).map(([k]) => k).join(' '))
+                                }${
+                                    this.redirect_uri ? `&redirect_uri=${encodeURIComponent(this.redirect_uri)}` : ''
+                                }${
+                                    this.prompt ? `&prompt=${this.prompt}` : ''
+                                }`}}
                             </span></a></h1>
                         </div>
                     </div>
@@ -303,7 +360,19 @@ export default {
             client_id: '',
             guild_id: '',
             disable_guild_select: false,
+            redirect_uri: '',
+            prompt: '',
+            showScope: false,
             wad: new BitField(1342168769, this.assembly),
+            scopes: Object.fromEntries([
+                'identify', 'email', 'connections',
+                'guilds', 'guilds.join', 'gdm.join',
+                'rpc', 'rpc.notifications.read', 'bot',
+                'webhook.incoming', 'messages.read', 'applications.builds.upload',
+                'applications.builds.read', 'applications.commands', 'applications.commands.update',
+                'applications.store.update', 'applications.entitlements', 'activities.read',
+                'activities.write', 'relationships.read',
+            ].map((v) => [v, v == 'bot'])),
         };
     },
     methods: {
