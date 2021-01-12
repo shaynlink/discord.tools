@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "discord.js": "^12.5.1",
     "nuxt": "^2.14.12",
     "sass": "^1.32.2",
     "sass-loader": "^10.1.0"
