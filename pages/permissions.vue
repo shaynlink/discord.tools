@@ -111,45 +111,53 @@
         <section class="hero">
             <div class="hero-body">
                 <div class="container">
-                    <div class="columns is-multiline is-vcentered">
-                        <div class="column is-12">
-                            <div class="columns is-vcentered">
-                                <div class="column is-1">
-                                    <label class="toggle-control">
-                                        <input type="checkbox" :checked="all" v-on:click="triggerAll">
-                                        <span class="control"></span>
-                                    </label>
+                    <div class="columns">
+                        <div class="column is-6">
+                            <div class="columns is-multiline is-vcentered">
+                                <div class="column is-12">
+                                    <div class="columns is-vcentered">
+                                        <div class="column is-1">
+                                            <label class="toggle-control">
+                                                <input type="checkbox" :checked="all" v-on:click="triggerAll">
+                                                <span class="control"></span>
+                                            </label>
+                                        </div>
+                                        <div class="column">
+                                            <div><p>Select all</p></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="column" style="margin-left: -3%">
-                                    <div class="label-text"><p>Select all</p></div>
+                                <div class="column is-12">
+                                    <div class="columns is-vcentered">
+                                        <div class="column is-1">
+                                            <label class="toggle-control">
+                                                <input type="checkbox" :checked="allWithoutAdmin" v-on:click="triggerAllWithoutAdmin">
+                                                <span class="control"></span>
+                                            </label>
+                                        </div>
+                                        <div class="column">
+                                            <div><p>Select all without administrator permissions</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column is-12">
+                                    <div class="columns is-vcentered">
+                                        <div class="column is-1">
+                                            <label class="toggle-control">
+                                                <input v-model="disable_guild_select" type="checkbox">
+                                                <span class="control"></span>
+                                            </label>
+                                        </div>
+                                        <div class="column">
+                                            <div><p>Disable guild selection</p></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="column is-12">
-                            <div class="columns is-vcentered">
-                                <div class="column is-1">
-                                    <label class="toggle-control">
-                                        <input type="checkbox" :checked="allWithoutAdmin" v-on:click="triggerAllWithoutAdmin">
-                                        <span class="control"></span>
-                                    </label>
-                                </div>
-                                <div class="column" style="margin-left: -3%">
-                                    <div class="label-text"><p>Select all without administrator permissions</p></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column is-12">
-                            <div class="columns is-vcentered">
-                                <div class="column is-1">
-                                    <label class="toggle-control">
-                                        <input v-model="disable_guild_select" type="checkbox">
-                                        <span class="control"></span>
-                                    </label>
-                                </div>
-                                <div class="column" style="margin-left: -3%">
-                                    <div class="label-text"><p>Disable guild selection</p></div>
-                                </div>
-                            </div>
+
+                        <div class="column is-6">
+                            <p class="label-text">Colored permissions require the owner account to use two-factor authentication when used on a guild that has server-wide 2FA enabled.</p>
                         </div>
                     </div>
                 </div>
@@ -287,7 +295,7 @@ export default {
             permissionList: Object.fromEntries(Object.entries(this.assembly).map(([k]) => [k, false])),
             bitfield: new BitField(this.bit, this.assembly),
             version: 6,
-            versions: [6, 7, 8],
+            versions: [6, 8],
             url: 'https://discord.com/api',
             permissions: 0,
             all: false,

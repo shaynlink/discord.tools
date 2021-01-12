@@ -17,6 +17,7 @@ $toggle-control-ease: ease-in;
 $toggle-radius: $toggle-height / 2;
 $toggle-control-size: $toggle-height - ($toggle-gutter * 2);
 $input-color: #fff;
+$link-hover: #4A90E2;
 
 @import "./bulma/bulma.sass";
 
