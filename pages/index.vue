@@ -6,6 +6,7 @@
                 <div class="column">
                     <h1 class="title">Welcome to <span style="color: #7289DA">Discord.tools</span></h1>
                     <p class="subtitle">An unofficial discord multi-tools</p>
+                    <button class="button add-button" style="display: none;">Download app</button>
                 </div>
                 <div class="column">
                     <figure class="image">
