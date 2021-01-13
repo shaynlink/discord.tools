@@ -1,0 +1,22 @@
+{
+    "name": "Discord tools",
+    "short_name": "GG tools",
+    "start_url": "./?utm_source=web_app_manifest",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "images/Discord-Logo-Color-40.png",
+            "sizes": "240x240",
+            "type": "image/png"
+        }
+    ],
+    "related_applications": [{
+        "platform": "web"
+    }],
+    "background_color": "black",
+    "description": "Unofficial discord tools for developers !",
+    "lang": "en",
+    "orientation": "portrait",
+    "prefer_related_applications": true,
+    "theme_color": "aliceblue"
+}

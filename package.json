@@ -1,7 +1,7 @@
 {
   "name": "discord.tools",
   "version": "1.0.0",
-  "description": "",
+  "description": "Unofficial discord tools for developers !",
   "private": true,
   "engineStrict": true,
   "engines": {
