@@ -255,8 +255,8 @@
                                     this.permissions == 2147483647 ? -1 : this.permissions
                                 }${
                                     this.guild_id ? `&guild_id=${this.guild_id}` : ''
-                                }&disable_guild_select=${
-                                    this.disable_guild_select
+                                }${
+                                    this.disable_guild_select ? '&disable_guild_select=true' : ''
                                 }&scope=${
                                     encodeURIComponent(Object.entries(this.scopes).filter(([k, v]) => !!v).map(([k]) => k).join(' '))
                                 }${
@@ -274,8 +274,8 @@
                                     this.permissions == 2147483647 ? -1 : this.permissions
                                 }${
                                     this.guild_id ? `&guild_id=${this.guild_id}` : ''
-                                }&disable_guild_select=${
-                                    this.disable_guild_select
+                                }${
+                                    this.disable_guild_select ? '&disable_guild_select=true' : ''
                                 }&scope=${
                                     encodeURIComponent(Object.entries(this.scopes).filter(([k, v]) => !!v).map(([k]) => k).join(' '))
                                 }${
