@@ -60,6 +60,8 @@
                                 </div>
                                 <div class="column is-12" style="margin-top: 5%">
                                     <p class="label-text">For colored intents, you must first go to your application in the Developer Portal and enable the toggle for the Privileged Intents you wish to use.<br /> If your bot is in 100 or more guilds, you must also get your <a href="https://support.discord.com/hc/en-us/articles/360040720412-Bot-Verification-and-Data-Whitelisting" target="_blank">bot verified.</a></p>
+                                    <br />
+                                    <p><a href="https://discord.com/developers/docs/topics/gateway#gateway-intents" target="_blank">🔗 Official Discord gateway intents documentation</a></p>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +108,7 @@
                                     <h1>Intents: <code>{{intents}}</code></h1>
                                 </div>
                                 <div class="column is-12">
-                                    <p><a href="https://ziad87.net/intents/" target="_blank">You want use present ?</a></p>
+                                    <p><a href="https://ziad87.net/intents/" target="_blank">🔗 You want use present ?</a></p>
                                 </div>
                             </div>
                         </div>

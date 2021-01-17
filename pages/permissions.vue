@@ -158,6 +158,8 @@
 
                         <div class="column is-6">
                             <p class="label-text">Colored permissions require the owner account to use two-factor authentication when used on a guild that has server-wide 2FA enabled.</p>
+                            <br />
+                            <p><a href="https://discord.com/developers/docs/topics/permissions#permissions" target="_blank">🔗 Official Discord permissions documentation</a></p>
                         </div>
                     </div>
                 </div>
